@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="DeconvolutionLab2" default="build" basedir=".">
+
+	<property name="imagej" location="${user.home}/Desktop/ImageJ/plugins" />
+	<property name="fiji" location="${user.home}/Desktop/Fiji.app/plugins" />
+	<property name="matlab" location="/Applications/MATLAB_R2018a.app/java/" />
+
+	<property name="javadoc.header" value="&lt;h3&gt;DeconvolutionLab2&lt;/h3&gt;&#09;v1.0" />
+	<property name="javadoc.footer" value="&lt;h4&gt;DeconvolutionLab2&lt;/h4&gt;&#09;&lt;script&gt; var tStamp=new Date(); document.write(tStamp.toUTCString()); &lt;/script&gt;" />
+	<property name="javadoc.bottom" value='Copyright &amp;copy; &lt;script&gt; var currYear=new Date(); document.write(currYear.getFullYear()); &lt;/script&gt;, Biomedical Imaging Group, EPFL, Lausanne, Switzerland. All rights reserved.' />
+
+	<target name="build">
+		<mkdir dir="bin" />
+		<copy todir="bin"><fileset dir="src/main/resources"></fileset></copy>
+		<copy todir="bin"><fileset dir="target/classes"></fileset></copy>
+		<mkdir dir="dist" />
+		<zip destfile="dist/DeconvolutionLab2-src.zip" basedir="src" />
+		<zip destfile="dist/DeconvolutionLab2-cls.zip" basedir="bin" />
+		<jar destfile="dist/DeconvolutionLab_2.jar" basedir="bin">
+			<manifest>
+				<attribute name="Main-Class" value="DeconvolutionLab2" />
+			</manifest>
+		</jar>
+		<copy toDir="${fiji}" file="dist/DeconvolutionLab_2.jar" />
+		<copy toDir="${matlab}" file="dist/DeconvolutionLab_2.jar" />
+		<copy toDir="${imagej}" file="dist/DeconvolutionLab_2.jar" />
+
+		<mkdir dir="doc" />
+		<javadoc destdir="doc" author="true" version="true" overview="${basedir}/overview.html" windowtitle="DeconvolutionLab2">
+			<fileset dir="src">
+				<include name="**/*.java" />
+				<exclude name="**/fft/**" />
+				<exclude name="**/jfftw/**" />
+			</fileset>
+			<header>
+				<![CDATA[${javadoc.header}]]>
+			</header>
+			<footer>
+				<![CDATA[${javadoc.footer}]]>
+			</footer>
+			<bottom>
+				<![CDATA[${javadoc.bottom}]]>
+			</bottom>
+		</javadoc>
+	</target>
+
+</project>
