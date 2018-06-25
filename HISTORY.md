@@ -1,5 +1,5 @@
 	
-Version 2.1.1 of DeconvolutionLab2 (28 May 2018)
+Version 2.1.1 of DeconvolutionLab2 (21 June 2018)
 =============
 - Add the command SIM and several show commands in Matlab interface class DL2.
 - Fix the bug: no Matlab return (run in ExecutorService for Matlab only).
