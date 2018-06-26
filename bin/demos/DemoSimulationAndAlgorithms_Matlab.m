@@ -1,3 +1,11 @@
+%
+% This demo exists in 5 different interfaces:
+% - using ImageJ Macro 
+% - using the command line interface (cshell)
+% - in Java,  using the DeconvolutionLab2 as a Java Library
+% - in Java,  using the command of DeconvolutionLab2
+% - in Matlab, calling methods of the class DL2
+%
 function DemoSimulationAndAlgorithms_Matlab
 
     javaaddpath([matlabroot filesep 'java' filesep 'DeconvolutionLab_2.jar'])

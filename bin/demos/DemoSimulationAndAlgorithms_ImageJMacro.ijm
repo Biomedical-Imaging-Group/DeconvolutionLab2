@@ -1,4 +1,12 @@
-
+/** 
+ * This demo exists in 5 different interfaces:
+ * - using ImageJ Macro 
+ * - using the command line interface (cshell)
+ * - in Java,  using the DeconvolutionLab2 as a Java Library
+ * - in Java,  using the command of DeconvolutionLab2
+ * - in Matlab, calling methods of the class DL2
+ */
+ 
 path  = " -path /Users/sage/Desktop/Demo/ImageJMacro/ ";
 image = " -image synthetic CubeSphericalBeads 5.0 0.2 12.0 12.0  size 96 80 64 intensity 128 ";
 psf   = " -psf synthetic Gaussian 2.0 2.0 2.0  size 96 80 64 ";

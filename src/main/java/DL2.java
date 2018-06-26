@@ -136,11 +136,11 @@ public class DL2 {
 	
 
 	public static Object DIV(Object arrayImage, Object arrayPSF) {
-		return DIV(arrayImage, arrayPSF, "");
+		return DIV(arrayImage, arrayPSF, null, "");
 	}
 	
 	public static Object DIV(Object arrayImage, Object arrayPSF, String options) {
-		return DIV(arrayImage, arrayPSF, null, "");
+		return DIV(arrayImage, arrayPSF, null, options);
 	}
 
 	public static Object DIV(Object arrayImage, Object arrayPSF, Object arrayRef, String options) {
@@ -154,11 +154,11 @@ public class DL2 {
 	}
 
 	public static Object CONV(Object arrayImage, Object arrayPSF) {
-		return CONV(arrayImage, arrayPSF, "");
+		return CONV(arrayImage, arrayPSF, null, "");
 	}
 
 	public static Object CONV(Object arrayImage, Object arrayPSF, String options) {
-		return CONV(arrayImage, arrayPSF, null, "");
+		return CONV(arrayImage, arrayPSF, null, options);
 	}
 
 	public static Object CONV(Object arrayImage, Object arrayPSF, Object arrayRef, String options) {
@@ -208,11 +208,11 @@ public class DL2 {
 	}
 
 	public static Object TRIF(Object arrayImage, Object arrayPSF, double regularizationFactor) {
-		return TRIF(arrayImage, arrayPSF, regularizationFactor, "");
+		return TRIF(arrayImage, arrayPSF, null, regularizationFactor, "");
 	}
 
 	public static Object TRIF(Object arrayImage, Object arrayPSF, double regularizationFactor, String options) {
-		return TRIF(arrayImage, arrayPSF, regularizationFactor, options);
+		return TRIF(arrayImage, arrayPSF, null, regularizationFactor, options);
 	}
 	
 	public static Object TRIF(Object arrayImage, Object arrayPSF, Object arrayRef, double regularizationFactor, String options) {
@@ -226,11 +226,11 @@ public class DL2 {
 	}
 	
 	public static Object RIF(Object arrayImage, Object arrayPSF, double regularizationFactor, String options) {
-		return RIF(arrayImage, arrayPSF, regularizationFactor, options);
+		return RIF(arrayImage, arrayPSF, null, regularizationFactor, options);
 	}
 	
 	public static Object RIF(Object arrayImage, Object arrayPSF, double regularizationFactor) {
-		return RIF(arrayImage, arrayPSF, regularizationFactor, "");
+		return RIF(arrayImage, arrayPSF, null, regularizationFactor, "");
 	}
 	
 	public static Object RIF(Object arrayImage, Object arrayPSF, Object arrayRef, double regularizationFactor, String options) {
@@ -244,11 +244,11 @@ public class DL2 {
 	}	
 	
 	public static Object RL(Object arrayImage, Object arrayPSF, double itmax) {
-		return RL(arrayImage, arrayPSF, itmax, "");
+		return RL(arrayImage, arrayPSF, null, itmax, "");
 	}
 	
 	public static Object RL(Object arrayImage, Object arrayPSF, double itmax, String options) {
-		return RL(arrayImage, arrayPSF, itmax, options);
+		return RL(arrayImage, arrayPSF, null, itmax, options);
 	}
 	
 	public static Object RL(Object arrayImage, Object arrayPSF, Object arrayRef, double itmax, String options) {
@@ -262,11 +262,11 @@ public class DL2 {
 	}
 	
 	public static Object RLTV(Object arrayImage, Object arrayPSF, double itmax, double regularizationFactor) {
-		return RLTV(arrayImage, arrayPSF, itmax, regularizationFactor, "");
+		return RLTV(arrayImage, arrayPSF, null, itmax, regularizationFactor, "");
 	}
 	
 	public static Object RLTV(Object arrayImage, Object arrayPSF, double itmax, double regularizationFactor, String options) {
-		return RLTV(arrayImage, arrayPSF, itmax, regularizationFactor, options);
+		return RLTV(arrayImage, arrayPSF, null, itmax, regularizationFactor, options);
 	}
 	
 	public static Object RLTV(Object arrayImage, Object arrayPSF, Object arrayRef, double itmax, double regularizationFactor, String options) {
@@ -280,11 +280,11 @@ public class DL2 {
 	}	
 
 	public static Object LW(Object arrayImage, Object arrayPSF, double itmax, double gamma) {
-		return LW(arrayImage, arrayPSF, itmax, gamma, "");
+		return LW(arrayImage, arrayPSF, null, itmax, gamma, "");
 	}
 
 	public static Object LW(Object arrayImage, Object arrayPSF, double itmax, double gamma, String options) {
-		return LW(arrayImage, arrayPSF, itmax, gamma, options);
+		return LW(arrayImage, arrayPSF, null, itmax, gamma, options);
 	}
 	
 	public static Object LW(Object arrayImage, Object arrayPSF, Object arrayRef, double itmax, double gamma, String options) {
@@ -298,11 +298,11 @@ public class DL2 {
 	}
 
 	public static Object NNLS(Object arrayImage, Object arrayPSF, double itmax, double gamma) {
-		return NNLS(arrayImage, arrayPSF, itmax, gamma, "");
+		return NNLS(arrayImage, arrayPSF, null, itmax, gamma, "");
 	}
 
 	public static Object NNLS(Object arrayImage, Object arrayPSF, double itmax, double gamma, String options) {
-		return NNLS(arrayImage, arrayPSF, itmax, gamma, options);
+		return NNLS(arrayImage, arrayPSF, null, itmax, gamma, options);
 	}
 	
 	public static Object NNLS(Object arrayImage, Object arrayPSF, Object arrayRef, double itmax, double gamma, String options) {
@@ -316,11 +316,11 @@ public class DL2 {
 	}
 	
 	public static Object BVLS(Object arrayImage, Object arrayPSF, double itmax, double gamma) {
-		return BVLS(arrayImage, arrayPSF, itmax, gamma, "");
+		return BVLS(arrayImage, arrayPSF, null, itmax, gamma, "");
 	}
 	
 	public static Object BVLS(Object arrayImage, Object arrayPSF, double itmax, double gamma, String options) {
-		return BVLS(arrayImage, arrayPSF, itmax, gamma, options);
+		return BVLS(arrayImage, arrayPSF, null, itmax, gamma, options);
 	}
 	
 	public static Object BVLS(Object arrayImage, Object arrayPSF, Object arrayRef, double itmax, double gamma, String options) {
@@ -334,11 +334,11 @@ public class DL2 {
 	}
 
 	public static Object TM(Object arrayImage, Object arrayPSF, double itmax, double gamma, double lambda) {
-		return TM(arrayImage, arrayPSF, itmax, gamma, lambda, "");
+		return TM(arrayImage, arrayPSF, null, itmax, gamma, lambda, "");
 	}
 
 	public static Object TM(Object arrayImage, Object arrayPSF, double itmax, double gamma, double lambda, String options) {
-		return TM(arrayImage, arrayPSF, itmax, gamma, lambda, options);
+		return TM(arrayImage, arrayPSF, null, itmax, gamma, lambda, options);
 	}
 	
 	public static Object TM(Object arrayImage, Object arrayPSF, Object arrayRef, double itmax, double gamma, double lambda, String options) {
@@ -352,11 +352,11 @@ public class DL2 {
 	}
 
 	public static Object ICTM(Object arrayImage, Object arrayPSF, double itmax, double gamma, double lambda) {
-		return ICTM(arrayImage, arrayPSF, itmax, gamma, lambda, "");
+		return ICTM(arrayImage, arrayPSF, null, itmax, gamma, lambda, "");
 	}
 
 	public static Object ICTM(Object arrayImage, Object arrayPSF, double itmax, double gamma, double lambda, String options) {
-		return ICTM(arrayImage, arrayPSF, itmax, gamma, lambda, options);
+		return ICTM(arrayImage, arrayPSF, null, itmax, gamma, lambda, options);
 	}
 	
 	public static Object ICTM(Object arrayImage, Object arrayPSF, Object arrayRef, double itmax, double gamma, double lambda, String options) {
