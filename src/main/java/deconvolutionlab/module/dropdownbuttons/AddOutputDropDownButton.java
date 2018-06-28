@@ -124,10 +124,11 @@ public class AddOutputDropDownButton extends AbstractDropDownButton implements A
 		}
 
 		if (view != null) {
-			OutputDialog dlg = new OutputDialog(view);
+			OutputDialog dlg = new OutputDialog(view, 0);
 			Lab.setVisible(dlg, true);
 			if (dlg.wasCancel()) return;
 			Output out = dlg.getOut();
+			if (out == null) return;
 			out.setAction(action);
 			module.addOutput(dlg.getOut());
 		}

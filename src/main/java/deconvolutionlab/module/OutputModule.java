@@ -45,11 +45,16 @@ import javax.swing.JToolBar;
 
 import bilib.table.CustomizedColumn;
 import bilib.table.CustomizedTable;
+import bilib.tools.NumFormat;
 import deconvolution.Command;
 import deconvolutionlab.Config;
 import deconvolutionlab.Constants;
+import deconvolutionlab.Lab;
+import deconvolutionlab.dialog.OutputDialog;
 import deconvolutionlab.module.dropdownbuttons.AddOutputDropDownButton;
 import deconvolutionlab.output.Output;
+import deconvolutionlab.output.Output.Action;
+import deconvolutionlab.output.Output.View;
 
 public class OutputModule extends AbstractModule implements ActionListener, MouseListener {
 
@@ -207,6 +212,40 @@ public class OutputModule extends AbstractModule implements ActionListener, Mous
 			if (table.getRowCount() > 0)
 				table.setRowSelectionInterval(0, 0);
 		}
+		if (e.getClickCount() == 2) {
+			String mode = table.getCell(row, 0).trim().toLowerCase();
+			String snapshot = table.getCell(row, 1).trim();
+			boolean show = table.getCell(row, 6).trim().endsWith("2612");
+			boolean save = table.getCell(row, 7).trim().endsWith("2612");
+			Action action = Action.SHOWSAVE;
+			if (show & !save)
+				action = Action.SHOW;
+			if (save & !show)
+				action = Action.SAVE;
+			
+			View view = View.STACK;
+			if (mode.startsWith("mip"))
+				view = View.MIP;
+			if (mode.startsWith("ortho"))
+				view = View.ORTHO;
+			if (mode.startsWith("fig"))
+				view = View.FIGURE;
+			if (mode.startsWith("planar"))
+				view = View.PLANAR;
+			if (mode.startsWith("serie"))
+				view = View.SERIES;
+			int s = 0;
+			if (snapshot.startsWith("@"))
+				s = (int)NumFormat.parseNumber(snapshot, 0);
+			OutputDialog dlg = new OutputDialog(view, s);
+			Lab.setVisible(dlg, true);
+			if (dlg.wasCancel()) return;
+			Output out = dlg.getOut();
+			if (out == null) return;
+			out.setAction(action);
+			table.insert(out.getAsString());
+		}
+
 		update();
 		Command.buildCommand();
 	}
@@ -231,4 +270,8 @@ public class OutputModule extends AbstractModule implements ActionListener, Mous
 	public void close() {
 		getActionButton().removeActionListener(this);
 	}
+
+
+	
+
 }

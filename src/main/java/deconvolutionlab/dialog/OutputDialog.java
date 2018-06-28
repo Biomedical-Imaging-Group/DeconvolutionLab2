@@ -70,20 +70,22 @@ public class OutputDialog extends JDialog implements ActionListener {
 	
 	private static int count	= 1;
 	
-	public OutputDialog(View view) {
+	public OutputDialog(View view, int snapshot) {
 		super(new JFrame(), "Create a new output");
 		this.view = view;
 
 		txtName.setText(view.name().substring(0, 2) + (count++));
 		cmbSnapshot.setEditable(true);
+		if (snapshot == 0)
+			cmbSnapshot.setSelectedIndex(0);
+		else
+			cmbSnapshot.setSelectedItem(""+snapshot);
 		GridPanel pn = new GridPanel(true);
 		pn.place(0, 0, "Name");
-		pn.place(0, 1, txtName);
-		
-		if (view != View.SERIES) {
-			pn.place(4, 0,  "Snapshot");
-			pn.place(4, 1,  cmbSnapshot);
-		}
+		pn.place(0, 1, txtName);	
+		pn.place(4, 0,  "Snapshot");
+		pn.place(4, 1,  cmbSnapshot);
+
 
 		GridPanel main = new GridPanel(false);
 		main.place(1, 0, 2, 1, pn);

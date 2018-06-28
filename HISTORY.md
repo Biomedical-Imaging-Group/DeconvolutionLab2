@@ -1,6 +1,9 @@
 	
-Version 2.1.1 of DeconvolutionLab2 (21 June 2018)
-=============
+## Version 2.1.2 of DeconvolutionLab2 (27 June 2018)
+- Allow snapshot for stack output and series ouptut
+
+## Version 2.1.1 of DeconvolutionLab2 (21 June 2018)
+
 - Add the command SIM and several show commands in Matlab interface class DL2.
 - Fix the bug: no Matlab return (run in ExecutorService for Matlab only).
 - Remove the debug message (exception): JTransform not found.
@@ -18,6 +21,5 @@ Version 2.1.1 of DeconvolutionLab2 (21 June 2018)
 - Compilation in Java 1.8
 
 
-Version 2.0.0 of DeconvolutionLab2 (08 May 2017)
-=============
+## Version 2.0.0 of DeconvolutionLab2 (08 May 2017)
 - First public release

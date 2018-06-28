@@ -15,7 +15,7 @@ public class Test extends PluginActionable {
 		
 		Lab.init(Platform.ICY, Files.getWorkingDirectory() + "DeconvolutionLab2.config");
 		IcyFrame icf = new IcyFrame();
-		icf.add(new OutputDialog(View.FIGURE).getContentPane());	
+		icf.add(new OutputDialog(View.FIGURE, 0).getContentPane());	
 		icf.pack();
 		icf.toFront();
 		icf.addToDesktopPane();

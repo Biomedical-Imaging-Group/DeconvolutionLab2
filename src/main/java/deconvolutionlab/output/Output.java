@@ -286,18 +286,18 @@ public class Output {
 
 		switch (view) {
 		case STACK:
-			if (show && !live)
+			if (show)
 				Lab.show(monitors, x, title, type, (center ? x.nz / 2 : oz));
-			if (save && !live)
+			if (save)
 				Lab.save(monitors, x, filename, type);
 			break;
 		case SERIES:
 			for (int k = 0; k < x.nz; k++) {
 				RealSignal slice = x.getSlice(k);
 				String z = "-z" + String.format("%06d", k);
-				if (show && !live)
+				if (show)
 					Lab.show(monitors, slice, title + z, type);
-				if (save && !live) {
+				if (save) {
 					String zfilename = path + title + z + ".tif";
 					Lab.save(monitors, slice, zfilename, type);
 				}

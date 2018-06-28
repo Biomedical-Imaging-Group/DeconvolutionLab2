@@ -44,7 +44,7 @@ public class Constants {
 			"DeconvolutionLab2 : An open-source software for deconvolution microscopy<br>" +
 			"Methods-Image Processing for Biologists, vol. 115, 2017.";
 	
-	public static String version = "2.1.1 (21.06.2018)";
+	public static String version = "2.1.2 (27.06.2018)";
 	
 	public static String authors = 
 			"Daniel Sage, " + 
