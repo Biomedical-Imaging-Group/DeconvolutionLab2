@@ -31,12 +31,12 @@
 
 package signal.factory;
 
-import signal.ComplexSignal;
-import signal.RealSignal;
-import signal.factory.complex.ComplexSignalFactory;
 import deconvolutionlab.monitor.Monitors;
 import fft.AbstractFFT;
 import fft.FFT;
+import signal.ComplexSignal;
+import signal.RealSignal;
+import signal.factory.complex.ComplexSignalFactory;
 
 public class Laplacian extends SignalFactory {
 

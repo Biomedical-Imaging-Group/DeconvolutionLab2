@@ -35,14 +35,12 @@ import java.awt.CardLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 
-import bilib.table.CustomizedTable;
 import deconvolution.Deconvolution;
 import deconvolutionlab.system.AbstractMeter;
 import deconvolutionlab.system.FFTMeter;

@@ -31,13 +31,13 @@
 
 package fft.jtransforms;
 
-import signal.ComplexSignal;
-import signal.RealSignal;
 import deconvolutionlab.monitor.Monitors;
 import edu.emory.mathcs.jtransforms.fft.FloatFFT_1D;
 import edu.emory.mathcs.jtransforms.fft.FloatFFT_2D;
 import fft.AbstractFFT;
 import fft.Separability;
+import signal.ComplexSignal;
+import signal.RealSignal;
 
 public class JTransformsFFT_XY_Z extends AbstractFFT {
 

@@ -31,8 +31,6 @@
 
 package signal;
 
-import org.w3c.dom.Text;
-
 public class Assessment {
 
 	public static double snr(RealSignal test, RealSignal ref) {

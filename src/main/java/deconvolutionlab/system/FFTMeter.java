@@ -32,6 +32,7 @@
 package deconvolutionlab.system;
 
 import java.awt.Graphics;
+
 import fft.FFT;
 
 public class FFTMeter extends AbstractMeter {

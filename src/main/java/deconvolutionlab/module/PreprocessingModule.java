@@ -44,13 +44,6 @@ import javax.swing.JScrollPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import signal.RealSignal;
-import signal.apodization.AbstractApodization;
-import signal.apodization.Apodization;
-import signal.apodization.UniformApodization;
-import signal.padding.AbstractPadding;
-import signal.padding.NoPadding;
-import signal.padding.Padding;
 import bilib.component.GridPanel;
 import bilib.component.SpinnerRangeInteger;
 import bilib.tools.NumFormat;
@@ -58,6 +51,13 @@ import deconvolution.Command;
 import deconvolution.Deconvolution;
 import deconvolutionlab.Config;
 import deconvolutionlab.monitor.Monitors;
+import signal.RealSignal;
+import signal.apodization.AbstractApodization;
+import signal.apodization.Apodization;
+import signal.apodization.UniformApodization;
+import signal.padding.AbstractPadding;
+import signal.padding.NoPadding;
+import signal.padding.Padding;
 
 public class PreprocessingModule extends AbstractModule implements ActionListener, ChangeListener {
 
