@@ -64,6 +64,7 @@ public class RichardsonLucyTV extends Algorithm implements Callable<RealSignal> 
 		RealSignal u  = gx;	// resued memory
 		RealSignal p  = gy;	// resued memory
 		RealSignal tv = gz; // resued memory
+		
 		// For vector acceleration
 		RealSignal y_vector = y.duplicate();
 		RealSignal v_vector = y.duplicate();
@@ -72,7 +73,7 @@ public class RichardsonLucyTV extends Algorithm implements Callable<RealSignal> 
 		float alphau = 0;
 		
 		while(!controller.ends(x)) {
-			
+			// For vector acceleration
 			RealSignal x_update = x.duplicate();	
 			gradientX(y_vector, gx);
 			gradientY(y_vector, gy);
@@ -91,6 +92,7 @@ public class RichardsonLucyTV extends Algorithm implements Callable<RealSignal> 
 			fft.inverse(U, u);
 			x.times(u); 
 			x.times(tv);
+			// For vector acceleration
 			RealSignal vv_update = v_vector.duplicate();
 			Operations.subtract(x, y_vector, v_vector);
 			for (int z = 0; z < y.nz; z++) {

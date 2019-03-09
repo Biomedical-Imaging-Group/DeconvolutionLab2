@@ -53,14 +53,16 @@ public class RichardsonLucy extends Algorithm implements Callable<RealSignal> {
 		RealSignal x = y.duplicate();
 		RealSignal p = y.duplicate();
 		RealSignal u = y.duplicate();
-
+		
+		// For vector acceleration
 		RealSignal y_vector = y.duplicate();
 		RealSignal v_vector = y.duplicate();
 		float alpha = 0;
 		float alphal = 0;
 		float alphau = 0;
+		
 		while (!controller.ends(x)) {
-			
+			// For vector acceleration
 			RealSignal x_update = x.duplicate();
 			fft.transform(y_vector, U);
 			U.times(H);
@@ -70,6 +72,7 @@ public class RichardsonLucy extends Algorithm implements Callable<RealSignal> {
 			U.timesConjugate(H);
 			fft.inverse(U, u);
 			x.times(u);
+			// For vector acceleration
 			RealSignal vv_update = v_vector.duplicate();
 			Operations.subtract(x, y_vector, v_vector);
 			for (int z = 0; z < y.nz; z++) {
