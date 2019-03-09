@@ -65,9 +65,7 @@ public class RichardsonLucy extends Algorithm implements Callable<RealSignal> {
 		//First iteration ! 
 		float alpha1 = 0;
 		float alphal1 = 0;
-		float alphau1 = 0;
-		// For vector acceleration
-		
+		float alphau1 = 0;		
 		fft.transform(y_vector, U);
 		U.times(H);
 		fft.inverse(U, u);
@@ -108,6 +106,7 @@ public class RichardsonLucy extends Algorithm implements Callable<RealSignal> {
 		if (alpha1>1)
 			alpha1=1;
 		y_vector=Operations.subtract(x, x_update).times(alpha1).plus(x);		
+		
 		//iteration really start!
 		while (!controller.ends(x)) {
 			float alpha = 0;
