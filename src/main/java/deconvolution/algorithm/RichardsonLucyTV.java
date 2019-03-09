@@ -60,21 +60,87 @@ public class RichardsonLucyTV extends Algorithm implements Callable<RealSignal> 
 		RealSignal ggx = y.duplicate();
 		RealSignal ggy = y.duplicate();
 		RealSignal ggz = y.duplicate();
-
 		RealSignal u  = gx;	// resued memory
 		RealSignal p  = gy;	// resued memory
 		RealSignal tv = gz; // resued memory
 		
-		// For vector acceleration
+		// For vector acceleration	
+		RealSignal yv_update = new RealSignal("yv_update",y.nx,y.ny,y.nz);
+		RealSignal v_vector = new RealSignal("v_vector",y.nx,y.ny,y.nz);	
+		RealSignal v_vector1 = new RealSignal("v_vector",y.nx,y.ny,y.nz);	
+		RealSignal xv_update = new RealSignal("xv_update",y.nx,y.ny,y.nz);
 		RealSignal y_vector = y.duplicate();
-		RealSignal v_vector = y.duplicate();
-		float alpha = 0;
-		float alphal = 0;
-		float alphau = 0;
+		RealSignal vv_update = v_vector.duplicate();
+		RealSignal x_update = x.duplicate();
+		//First iteration ! 
+		float alpha1 = 0;
+		float alphal1 = 0;
+		float alphau1 = 0;
+		gradientX(y_vector, gx);
+		gradientY(y_vector, gy);
+		gradientZ(y_vector, gz);
+		normalize(gx, gy, gz);	
+		gradientX(gx, ggx);
+		gradientY(gy, ggy);
+		gradientZ(gz, ggz);
+		compute((float)lambda, ggx, ggy, ggz, tv);
+		fft.transform(y_vector, U);
+		U.times(H);
+		fft.inverse(U, u);
+		Operations.divide(y, u, p);
+		fft.transform(p, U);
+		U.timesConjugate(H);
+		fft.inverse(U, u);
+		for (int z = 0; z < y.nz; z++) {
+			for (int i = 0; i < y.nx * y.ny; i++) {
+				System.out.print(i);
+				x.data[z][i]= y_vector.data[z][i] * u.data[z][i]*tv.data[z][i];
+			}
+		}
+		Operations.subtract(x, y_vector, v_vector);	
+		//prepare for vector
+		gradientX(yv_update, gx);
+		gradientY(yv_update, gy);
+		gradientZ(yv_update, gz);
+		normalize(gx, gy, gz);	
+		gradientX(gx, ggx);
+		gradientY(gy, ggy);
+		gradientZ(gz, ggz);
+		compute((float)lambda, ggx, ggy, ggz, tv);
+		fft.transform(yv_update, U);
+		U.times(H);
+		fft.inverse(U, u);
+		Operations.divide(y, u, p);
+		fft.transform(p, U);
+		U.timesConjugate(H);
+		fft.inverse(U, u);
+		for (int z = 0; z < y.nz; z++) {
+			for (int i = 0; i < y.nx * y.ny; i++) {
+				xv_update.data[z][i]= yv_update.data[z][i] * u.data[z][i]*tv.data[z][i];
+			}
+		}
+		Operations.subtract(xv_update, yv_update, v_vector1);
+		for (int z = 0; z < y.nz; z++) {
+			for (int i = 0; i < y.nx * y.ny; i++) {
+				alphau1+= vv_update.data[z][i] * v_vector1.data[z][i];
+				alphal1 += v_vector1.data[z][i] * v_vector1.data[z][i]+0.001;
+			}
+		}
+		alpha1=alphau1/alphal1;
+		if (alpha1<0)
+			alpha1=(float) 0.0001;
+		if (alpha1>1)
+			alpha1=1;
+		y_vector=Operations.subtract(x, x_update).times(alpha1).plus(x);		
+
+
 		
 		while(!controller.ends(x)) {
+			float alpha = 0;
+			float alphal = 0;
+			float alphau = 0;
 			// For vector acceleration
-			RealSignal x_update = x.duplicate();	
+			x_update = x.duplicate();	
 			gradientX(y_vector, gx);
 			gradientY(y_vector, gy);
 			gradientZ(y_vector, gz);
@@ -93,7 +159,7 @@ public class RichardsonLucyTV extends Algorithm implements Callable<RealSignal> 
 			x.times(u); 
 			x.times(tv);
 			// For vector acceleration
-			RealSignal vv_update = v_vector.duplicate();
+			vv_update = v_vector.duplicate();
 			Operations.subtract(x, y_vector, v_vector);
 			for (int z = 0; z < y.nz; z++) {
 				for (int i = 0; i < y.nx * y.ny; i++) {
@@ -116,6 +182,12 @@ public class RichardsonLucyTV extends Algorithm implements Callable<RealSignal> 
 		SignalCollector.free(tv);
 		SignalCollector.free(u);
 		SignalCollector.free(p);
+		SignalCollector.free(yv_update);
+		SignalCollector.free(v_vector );
+		SignalCollector.free(v_vector1);
+		SignalCollector.free(xv_update);
+		SignalCollector.free(y_vector);
+		SignalCollector.free(vv_update);
 		return x;
 	}
 	
