@@ -35,9 +35,9 @@ import java.util.ArrayList;
 
 import javax.swing.SwingWorker;
 
-import signal.RealSignal;
 import bilib.tools.NumFormat;
 import deconvolution.Command;
+import signal.RealSignal;
 
 public abstract class SignalFactory {
 

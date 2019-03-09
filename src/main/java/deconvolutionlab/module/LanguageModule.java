@@ -44,8 +44,8 @@ import javax.swing.JTextField;
 
 import bilib.component.HTMLPane;
 import deconvolution.Command;
-import deconvolution.Deconvolution;
 import deconvolution.CommandToken;
+import deconvolution.Deconvolution;
 import deconvolution.algorithm.Algorithm;
 import deconvolutionlab.Config;
 

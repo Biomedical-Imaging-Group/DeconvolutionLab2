@@ -32,32 +32,21 @@
 package deconvolutionlab.module;
 
 import java.awt.BorderLayout;
-import java.awt.GridLayout;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.dnd.DnDConstants;
 import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetDropEvent;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.BorderFactory;
-import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.JToolBar;
 
-import bilib.tools.Files;
 import deconvolution.Command;
 import deconvolutionlab.Config;
-import deconvolutionlab.Lab;
-import deconvolutionlab.Platform;
-import deconvolutionlab.dialog.PatternDialog;
-import deconvolutionlab.dialog.SyntheticDialog;
 import deconvolutionlab.module.dropdownbuttons.ChooseImageDropDownButton;
 import deconvolutionlab.module.dropdownbuttons.ShowImageDropDownButton;
 import signal.factory.SignalFactory;

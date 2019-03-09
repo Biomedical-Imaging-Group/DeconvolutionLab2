@@ -31,11 +31,8 @@
 
 package deconvolution.capsule;
 
-import java.awt.Dimension;
-
 import javax.swing.JSplitPane;
 
-import bilib.component.PanelImage;
 import bilib.table.CustomizedTable;
 import bilib.tools.NumFormat;
 import deconvolution.Deconvolution;

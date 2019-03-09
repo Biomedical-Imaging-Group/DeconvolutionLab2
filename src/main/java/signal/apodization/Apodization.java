@@ -33,8 +33,8 @@ package signal.apodization;
 
 import java.util.ArrayList;
 
-import signal.RealSignal;
 import deconvolutionlab.monitor.Monitors;
+import signal.RealSignal;
 
 public class Apodization {
 	

@@ -235,7 +235,7 @@ public class Operations {
 		return result;
 	}
 
-	public static ComplexSignal subtract(ComplexSignal s1, ComplexSignal s2) {
+	public static ComplexSignal tract(ComplexSignal s1, ComplexSignal s2) {
 		String name = s1.name + " - " + s2.name;
 		int nx = s1.nx;
 		int ny = s1.ny;

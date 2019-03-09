@@ -51,12 +51,12 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import signal.SignalCollector;
 import bilib.tools.NumFormat;
 import deconvolutionlab.Config;
 import deconvolutionlab.Constants;
 import deconvolutionlab.Lab;
 import fft.FFTPanel;
+import signal.SignalCollector;
 
 public class SystemInfo extends JDialog implements WindowListener, ActionListener, MouseListener {
 

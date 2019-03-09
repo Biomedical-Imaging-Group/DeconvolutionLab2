@@ -51,8 +51,8 @@ import bilib.component.HTMLPane;
 import deconvolution.Command;
 import deconvolution.Deconvolution;
 import deconvolution.DeconvolutionDialog;
-import deconvolution.algorithm.AlgorithmPanel;
 import deconvolution.algorithm.AlgorithmList;
+import deconvolution.algorithm.AlgorithmPanel;
 import deconvolutionlab.Config;
 import deconvolutionlab.Lab;
 

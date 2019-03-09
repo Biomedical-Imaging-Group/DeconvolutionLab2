@@ -33,11 +33,11 @@ package deconvolution.algorithm;
 
 import java.util.concurrent.Callable;
 
+import bilib.tools.PsRandom;
 import signal.ComplexSignal;
 import signal.Operations;
 import signal.RealSignal;
 import signal.SignalCollector;
-import bilib.tools.PsRandom;
 
 public class Simulation extends Algorithm implements Callable<RealSignal> {
 

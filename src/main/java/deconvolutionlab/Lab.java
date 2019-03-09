@@ -31,9 +31,6 @@
 
 package deconvolutionlab;
 
-import ij.gui.Plot;
-import imagej.IJImager;
-
 import java.awt.geom.Line2D;
 import java.io.File;
 import java.util.ArrayList;
@@ -43,12 +40,6 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import plugins.sage.deconvolutionlab.IcyImager;
-import signal.ComplexComponent;
-import signal.ComplexSignal;
-import signal.RealSignal;
-import signal.factory.SignalFactory;
-import signal.factory.Sphere;
 import bilib.tools.Files;
 import bilib.tools.NumFormat;
 import bilib.tools.WebBrowser;
@@ -58,6 +49,14 @@ import deconvolutionlab.output.Output;
 import fft.AbstractFFT;
 import fft.AbstractFFTLibrary;
 import fft.FFT;
+import ij.gui.Plot;
+import imagej.IJImager;
+import plugins.sage.deconvolutionlab.IcyImager;
+import signal.ComplexComponent;
+import signal.ComplexSignal;
+import signal.RealSignal;
+import signal.factory.SignalFactory;
+import signal.factory.Sphere;
 
 /**
  * This class contains a collection of useful static methods to manage all the
